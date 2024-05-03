@@ -11,11 +11,13 @@
 
 ## Talos setup
 
+### Installation
+
 When you are running the `talosctl gen config`-command, you need to add the `--config-patch @patch.yaml` flag to the it. You might also want to export the kubeconfig file to `$HOME/.kube/config` instead of `.`.
 
 Other than that, follow [this guide](https://www.talos.dev/v1.7/talos-guides/install/virtualized-platforms/proxmox/). Then go to the [next section](#cilium-installation).
 
-### Cilium installation
+#### Cilium installation
 
 This might take some time to complete, so be patient.
 
@@ -29,6 +31,16 @@ cilium install \
     --helm-set=cgroup.hostRoot=/sys/fs/cgroup \
     --helm-set=k8sServiceHost=localhost \
     --helm-set=k8sServicePort=7445
+```
+
+### Removing nodes
+
+To remove the node from the cluster, you run the following two commands:
+
+```bash
+talosctl -n <IP.of.node.to.remove> reset
+
+kubectl delete node <nodename>
 ```
 
 ### Updating the cluster
@@ -47,7 +59,7 @@ talosctl apply-config --insecure --nodes $CONTROL_PLANE_IP --file _out/controlpl
 
 ```bash
 # Set it to the new IP shown in the console of newly installed controlplane-node
-export CONTROL_PLANE_IP="192.168.1.118"
+export CONTROL_PLANE_IP="ip.address.to.your.control.plane"
 
 # Point to the talosconfig-file (used by talosctl)
 export TALOSCONFIG="_out/talosconfig"
