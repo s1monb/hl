@@ -1,13 +1,17 @@
 # Homelab
 
+## Todos
+
+- [ ] Cluster up and running with Cilium (kube-proxy replacement)
+- [ ] Argo CD configured for GitOps within this repo (Might change to a separate repo)
+
 ## Overview
 
 `talos/` - Talos k8s configurations
 
 ## Talos setup
 
-When you are running the `talosctl gen config`-command, you need to add the `--config-patch @patch.yaml` flag to the it. You might also want to export the kubeconfig file to `$HOME/.kube/config` instead of `.`. Other than that, follow the guide below:
-https://www.talos.dev/v1.7/talos-guides/install/virtualized-platforms/proxmox/
+When you are running the `talosctl gen config`-command, you need to add the `--config-patch @patch.yaml` flag to the it. You might also want to export the kubeconfig file to `$HOME/.kube/config` instead of `.`. Other than that, follow [this guide](https://www.talos.dev/v1.7/talos-guides/install/virtualized-platforms/proxmox/)
 
 ### Cilium installation
 
@@ -31,8 +35,13 @@ The way to update the cluster, is to swap out the nodes with new updated ones.
 
 #### Control Plane-nodes:
 
-`talosctl apply-config --insecure --nodes $CONTROL_PLANE_IP --file kubernetes/controlplane.yaml`
-Keep in mind that if you change out the main control-plane, you need to run
+Simply run:
+
+```bash
+talosctl apply-config --insecure --nodes $CONTROL_PLANE_IP --file kubernetes/controlplane.yaml
+```
+
+> Keep in mind that if you change out the main control-plane. Run the commands below to update the kubeconfig-file.
 
 ```bash
 # Set it to the new IP shown in the console of newly installed controlplane-node
@@ -49,4 +58,8 @@ talosctl kubeconfig $HOME/.kube/config
 
 #### Worker-nodes
 
-`talosctl apply-config --insecure --nodes $WORKER_IP --file kubernetes/worker.yaml`
+Simply run:
+
+```bash
+talosctl apply-config --insecure --nodes $WORKER_IP --file kubernetes/worker.yaml
+```
