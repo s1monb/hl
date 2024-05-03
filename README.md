@@ -2,7 +2,7 @@
 
 ## Todos
 
-- [ ] Cluster up and running with Cilium (kube-proxy replacement)
+- [x] Cluster up and running with Cilium (kube-proxy replacement)
 - [ ] Argo CD configured for GitOps within this repo (Might change to a separate repo)
 
 ## Overview
