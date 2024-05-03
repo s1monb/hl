@@ -38,7 +38,7 @@ The way to update the cluster, is to swap out the nodes with new updated ones.
 Simply run:
 
 ```bash
-talosctl apply-config --insecure --nodes $CONTROL_PLANE_IP --file kubernetes/controlplane.yaml
+talosctl apply-config --insecure --nodes $CONTROL_PLANE_IP --file _out/controlplane.yaml
 ```
 
 > Keep in mind that if you replace the control-plane, you have to run the commands below to update the kubeconfig-file.
@@ -48,7 +48,7 @@ talosctl apply-config --insecure --nodes $CONTROL_PLANE_IP --file kubernetes/con
 export CONTROL_PLANE_IP="192.168.1.118"
 
 # Point to the talosconfig-file (used by talosctl)
-export TALOSCONFIG="kubernetes/talosconfig"
+export TALOSCONFIG="_out/talosconfig"
 talosctl config endpoint $CONTROL_PLANE_IP
 talosctl config node $CONTROL_PLANE_IP
 
@@ -61,5 +61,5 @@ talosctl kubeconfig $HOME/.kube/config
 Simply run:
 
 ```bash
-talosctl apply-config --insecure --nodes $WORKER_IP --file kubernetes/worker.yaml
+talosctl apply-config --insecure --nodes $WORKER_IP --file _out/worker.yaml
 ```
