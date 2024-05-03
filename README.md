@@ -41,7 +41,7 @@ Simply run:
 talosctl apply-config --insecure --nodes $CONTROL_PLANE_IP --file kubernetes/controlplane.yaml
 ```
 
-> Keep in mind that if you change out the main control-plane. Run the commands below to update the kubeconfig-file.
+> Keep in mind that if you replace the control-plane, you have to run the commands below to update the kubeconfig-file.
 
 ```bash
 # Set it to the new IP shown in the console of newly installed controlplane-node
