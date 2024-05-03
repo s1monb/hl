@@ -11,7 +11,9 @@
 
 ## Talos setup
 
-When you are running the `talosctl gen config`-command, you need to add the `--config-patch @patch.yaml` flag to the it. You might also want to export the kubeconfig file to `$HOME/.kube/config` instead of `.`. Other than that, follow [this guide](https://www.talos.dev/v1.7/talos-guides/install/virtualized-platforms/proxmox/)
+When you are running the `talosctl gen config`-command, you need to add the `--config-patch @patch.yaml` flag to the it. You might also want to export the kubeconfig file to `$HOME/.kube/config` instead of `.`.
+
+Other than that, follow [this guide](https://www.talos.dev/v1.7/talos-guides/install/virtualized-platforms/proxmox/). Then go to the [next section](#cilium-installation).
 
 ### Cilium installation
 
