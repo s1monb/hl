@@ -40,7 +40,7 @@ kubectl delete node <nodename>
 
 The way to update the cluster, is to swap out the nodes with new updated ones.
 
-#### Control Plane-nodes:
+#### Control Plane-nodes
 
 Simply run:
 
@@ -88,3 +88,10 @@ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.pas
 ```
 
 Now I would suggest you change the password and store it somewhere else.
+
+## ArgoCD Apps of apps
+
+We want to configure argocd to handle everything we have added to the cluster, even argo itself. We use the argocd apps of apps-pattern to achieve this.
+
+I also want to differentiate between the `infra/` app of apps and the `apps/` app of apps. The `infra/` is used for kubernetes-tooling, while `apps/` is used for user-applications.
+TODO
