@@ -1,2 +1,5 @@
 .DS_Store
 talos/_out/
+
+# Ignore generated helm-charts
+**/charts/**/*
