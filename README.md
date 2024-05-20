@@ -94,4 +94,4 @@ Now I would suggest you change the password and store it somewhere else.
 We want to configure argocd to handle everything we have added to the cluster, even argo itself. We use the argocd apps of apps-pattern to achieve this.
 
 I also want to differentiate between the `infra/` app of apps and the `apps/` app of apps. The `infra/` is used for kubernetes-tooling, while `apps/` is used for user-applications.
-TODO
+TODO: See [this repo](https://github.com/mabusaa/argocd-course-app-of-apps/blob/main/root-app-directory-approach.yaml). From this [video](https://www.youtube.com/watch?v=TV-wSLcgu3M&ab_channel=TechwithCoachTravis)
